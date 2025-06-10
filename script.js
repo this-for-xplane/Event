@@ -11,15 +11,15 @@ const ADMIN_PASSWORD = '1234';  // 관리자 비밀번호
 
 // 도움 요청 버튼
 helpBtn.addEventListener('click', async () => {
-  message.textContent = '기록 중... 잠시만요!';
+  message.textContent = '기록 중...';
   try {
     const res = await fetch(`${API_BASE}/help`);
     if (!res.ok) throw new Error('서버 오류');
     const text = await res.text();
     alert('옛다 도움 투척!');
-    message.textContent = '도움 고마워요! 이제 자유롭게 나가도 됩니다.';
+    message.textContent = '기록되었습니다. 이제 나가도 됩니다.';
   } catch (e) {
-    message.textContent = '오류 발생! 다시 시도해 주세요.';
+    message.textContent = '오류 발생, 다시 시도해 주세요.';
     console.error(e);
   }
 });
@@ -38,7 +38,7 @@ devBtn.addEventListener('click', () => {
 // 로그인 및 로그 불러오기
 loginBtn.addEventListener('click', async () => {
   if (adminPass.value !== ADMIN_PASSWORD) {
-    alert('비밀번호가 틀렸습니다!');
+    alert('비밀번호 틀림');
     return;
   }
   try {
