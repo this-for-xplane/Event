@@ -26,13 +26,9 @@ helpBtn.addEventListener('click', async () => {
 
 // 개발자 모드 버튼 (패널 열기/닫기)
 devBtn.addEventListener('click', () => {
-  if (adminPanel.classList.contains('hidden')) {
-    adminPanel.classList.remove('hidden');
-  } else {
-    adminPanel.classList.add('hidden');
-    adminPass.value = '';
-    logArea.textContent = '';
-  }
+  adminPanel.classList.toggle('hidden');
+  adminPass.value = '';
+  logArea.textContent = '';
 });
 
 // 로그인 및 로그 불러오기
