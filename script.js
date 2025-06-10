@@ -6,8 +6,8 @@ const adminPass = document.getElementById('adminPass');
 const loginBtn = document.getElementById('loginBtn');
 const logArea = document.getElementById('logArea');
 
-const API_BASE = 'https://내서버주소';  // 실제 API 서버 주소로 변경
-const ADMIN_PASSWORD = '1234';       // 원하는 비밀번호로 변경
+const API_BASE = 'https://event-eight-zeta.vercel.app';  // 실제 API 서버 주소
+const ADMIN_PASSWORD = '1234';  // 원하는 비밀번호
 
 helpBtn.addEventListener('click', async () => {
   message.textContent = '기록 중... 잠시만요!';
