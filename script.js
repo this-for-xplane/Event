@@ -6,9 +6,10 @@ const adminPass = document.getElementById('adminPass');
 const loginBtn = document.getElementById('loginBtn');
 const logArea = document.getElementById('logArea');
 
-const API_BASE = 'https://event-eight-zeta.vercel.app';  // 실제 API 서버 주소
-const ADMIN_PASSWORD = '1234';  // 원하는 비밀번호
+const API_BASE = 'https://event-eight-zeta.vercel.app';  // 실제 배포된 API 주소
+const ADMIN_PASSWORD = '1234';  // 관리자 비밀번호
 
+// 도움 요청 버튼
 helpBtn.addEventListener('click', async () => {
   message.textContent = '기록 중... 잠시만요!';
   try {
@@ -23,6 +24,7 @@ helpBtn.addEventListener('click', async () => {
   }
 });
 
+// 개발자 모드 버튼 (패널 열기/닫기)
 devBtn.addEventListener('click', () => {
   if (adminPanel.classList.contains('hidden')) {
     adminPanel.classList.remove('hidden');
@@ -33,13 +35,18 @@ devBtn.addEventListener('click', () => {
   }
 });
 
+// 로그인 및 로그 불러오기
 loginBtn.addEventListener('click', async () => {
   if (adminPass.value !== ADMIN_PASSWORD) {
     alert('비밀번호가 틀렸습니다!');
     return;
   }
   try {
-    const res = await fetch(`${API_BASE}/logs`);
+    const res = await fetch(`${API_BASE}/logs`, {
+      headers: {
+        'x-admin-pass': ADMIN_PASSWORD
+      }
+    });
     if (!res.ok) throw new Error('로그 조회 실패');
     const logs = await res.text();
     logArea.textContent = logs;
