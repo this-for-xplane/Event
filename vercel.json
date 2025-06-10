@@ -1,6 +1,6 @@
 {
   "rewrites": [
-    { "source": "/help", "destination": "/api/help.js" },
-    { "source": "/logs", "destination": "/api/logs.js" }
+    { "source": "/help", "destination": "/api/help" },
+    { "source": "/logs", "destination": "/api/logs" }
   ]
 }
